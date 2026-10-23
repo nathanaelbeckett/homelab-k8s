@@ -1,0 +1,17 @@
+
+
+# These components work differently in k3s, so their
+# checks would just show as "down". Turn them off.
+kubeEtcd:
+  enabled: false
+kubeControllerManager:
+  enabled: false
+kubeScheduler:
+  enabled: false
+kubeProxy:
+  enabled: false
+
+# Avoids a mount error that node-exporter can hit in WSL
+prometheus-node-exporter:
+  hostRootFsMount:
+    enabled: false
