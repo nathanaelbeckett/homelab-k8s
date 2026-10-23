@@ -1,4 +1,12 @@
-
+prometheus:
+  prometheusSpec:
+    additionalScrapeConfigs:
+      - job_name: natpi-node
+        static_configs:
+          - targets: ['192.168.4.95:9100']
+      - job_name: natpi-containers
+        static_configs:
+          - targets: ['192.168.4.95:8085']
 
 # These components work differently in k3s, so their
 # checks would just show as "down". Turn them off.
